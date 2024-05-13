@@ -1,7 +1,12 @@
-import { Pressable, View, Text } from "react-native";
+import { Pressable, Text } from "react-native";
 import {AppColors} from "../globals/GlobalStyles";
 
-export default function OnboardingButton() {
+type OnboardingButtonProps = {
+    text: string,
+    onPress: () => void,
+}
+
+export default function OnboardingButton(props: OnboardingButtonProps) {
     return (
         <Pressable style={
             {
@@ -11,13 +16,14 @@ export default function OnboardingButton() {
                 width: '100%',
                 alignItems: 'center'
             }
-        }>
+        }
+        onPress={props.onPress}>
             <Text style={
                 {
                     fontSize: 17,
                     fontWeight: '600'
                 }
-            }>Get Started</Text>
+            }>{props.text}</Text>
         </Pressable>
     )
 }
